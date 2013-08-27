@@ -1,0 +1,73 @@
+@charset "utf-8";
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td{margin:0;padding:0; font-family:SimSun-18030, Tahoma, Verdana, Arial; font-size:12px}fieldset,img{border:0}
+body{SCROLLBAR-ARROW-COLOR: #567db1;SCROLLBAR-FACE-COLOR: white; SCROLLBAR-DARKSHADOW-COLOR: #6699cc; SCROLLBAR-BASE-COLOR: #d6e8ff; SCROLLBAR-HIGHLIGHT-COLOR: #d6e8ff; SCROLLBAR-SHADOW-COLOR: #d6e8ff; SCROLLBAR-3DLIGHT-COLOR: #6699cc}
+body{background:#d6e8ff url(images/app_back.gif) repeat-x}
+::-webkit-scrollbar {width: 16px; height:16px}
+::-webkit-scrollbar-track-piece{background-color:#d6e8ff;}
+::-webkit-scrollbar-button{background:#fff; border:1px solid #567db1}
+::-webkit-scrollbar-thumb{background:#fff; border:1px solid #567db1} 
+ 
+select,input{vertical-align:middle}
+input,button,textarea,select,optgroup,option{font-family:arial,sans-serif;font-size:inherit;font-style:inherit;font-weight:inherit}input,button,textarea,select{font-size:100%}
+body{line-height:1.67;width:100%; height:100%}
+ol,ul{list-style:none}
+table{border-collapse:collapse;border-spacing:0}caption,th{text-align:left}td,th{font-size:12px}
+.no-selected{-moz-user-select:none;-webkit-user-select:none;}
+
+/*  button  */
+.wr-button{background: #cee7ff url(images/horizontal.png) repeat-x; height:20px;border:1px solid #3366cc; width:84px; line-height:18px; text-align:center; cursor:pointer}
+
+/*   grid       */
+.wr-grid{background:#fff; border:#6699cc 1px solid; position:relative;zoom:1}
+.wr-grid-loading{ width:100%; height:100%;  color:#999;}
+.wr-grid-loading .loading-info{position: absolute; width:100px; height:50px;left:50%; top:50%; margin:-25px 0 0 -50px;background:url(images/progress.gif) top center no-repeat;}
+.wr-grid-loading .loading-txt{position:absolute; bottom:0; left:0; width:100%; height:18px; text-align:center}
+/*   grid bar  */
+.wr-grid-actionbar{background:url(images/horizontal.png) 0 -44px repeat-x; height:25px; width:100%; border-bottom:#6893cf 1px solid; color:#15428b}
+.wr-grid-actionbar li{-moz-user-select:none;-webkit-user-select:none;}
+.wr-grid-actionbar li.hover{background:url(images/horizontal.png) 0 -72px; border:#ffdb6c 1px solid}
+.wr-grid-actionbar-item{float:left;height:20px; margin:1px 0 0 0;cursor:default; padding:0 6px;line-height:20px; border:1px solid transparent;_border-color:pink;_filter:chroma(color=pink);}
+.wr-grid-actionbar-spacer{float:left; margin:6px 8px 0 8px }
+.wr-grid-actionbar .ico{overflow:hidden;display:inline-block;*display:inline; *zoom:1; vertical-align:-3px; margin:0 6px 0 0}
+/*   grid header  */
+.wr-grid-header{width:100%; overflow:hidden;background:#f0f0f0; position:relative;border-bottom:#999999 1px solid;}
+.wr-grid-header table{background:#f0f0f0; height:21px; table-layout:fixed; width:100%}
+.wr-grid-header td{white-space:nowrap;padding-left:8px; text-align:left;  -moz-user-select:none;-webkit-user-select:none;}
+.wr-grid-header-col{position:relative; width:100%;text-overflow:ellipsis;overflow:hidden; line-height:20px; white-space:nowrap;}
+.wr-grid-header-col-sortable{cursor:pointer;}
+.wr-grid-header-col-sortable-over{background:url(images/horizontal.png) 0 -22px repeat-x; height:20px}
+.wr-grid-header-sort{display:inline-block;*display:inline; *zoom:1;vertical-align: middle;}
+.wr-grid-header-resize{position:absolute;cursor:col-resize;display:inline-block;*display:inline; *zoom:1; margin-top:3px; right:0}
+.wr-grid-header .wr-grid-header-refresh{position:absolute; right:1px; top:2px; cursor:pointer; z-index:100;-moz-user-select:none;-webkit-user-select:none;}
+
+/*   grid data  */
+.wr-grid-data{width:100%; height:100%;overflow:auto;}
+.wr-grid-data table{width:100%; border:0px;table-layout:fixed;border-collapse:collapse}
+.wr-grid-data table tr{border-bottom:#c4ddff 1px solid ;}
+.wr-grid-data table td{white-space:nowrap;overflow:hidden;text-overflow:ellipsis; height:21px; padding: 0 0 0 8px;*border-bottom:#c4ddff 1px solid}
+.wr-grid-data-sort{background:#eaf3ff !important}
+/*   grid footer  */
+.wr-grid-footer{background:#f0f0f0; border-top:#999999 1px solid;width:100%; height:22px; position:absolute; bottom:0; clear:both}
+.wr-grid-footer .statusbar{display:inline-block; margin:0 0 0 6px}
+.wr-grid-footer .paging{display:block; margin:0 6px 0 0; position:absolute; right:0; top:0;height:100%;}
+.wr-grid-footer .paging a{text-decoration:none; color:#333; margin:1px 0px 0 0px; height:18px; overflow:hidden;display:inline-block; padding:0 5px; height:18px;border:1px solid transparent;_border-color:pink;_filter:chroma(color=pink);}
+.wr-grid-footer .paging a:hover{background:#d6e8ff;border:1px solid #567db1}
+.wr-grid-footer .paging .activate{display:inline-block; padding:0 5px; height:18px;background:#ffe6a0; border:#ffb74c 1px solid;overflow:hidden;}
+.wr-grid-footer .paging .page-prev,.wr-grid-footer .paging .page-next{display:inline-block;cursor:pointer; vertical-align:top; margin:8px 0 0 0}
+.wr-grid-footer .paging .page-prev{margin:8px 8px 0 0}
+.wr-grid-footer .paging .page-next{margin:8px 0 0 8px}
+.wr-grid-footer .paging .pg-go{margin:0px 6px 0 6px;overflow:hidden; display:inline-block; zoom:1}
+.wr-grid-footer .paging .pg-input{height:15px; width:33px; border:1px solid #999;}
+
+/*   ico   */
+.asc{background:url(images/ico.png);width:9px; height:5px; overflow:hidden}
+.desc{background:url(images/ico.png) -13px 0;width:9px; height:5px; overflow:hidden}
+.split{background:url(images/ico.png) -23px 0; width:2px;height:14px; overflow:hidden}
+.bar-spacer{background:url(images/ico.png) -29px 0; width:2px; height:14px; overflow:hidden}
+.bar-new{background:url(images/ico.png) -72px 0;width:16px; height:16px;overflow:hidden}
+.bar-delete{background:url(images/ico.png) 0 -16px;width:16px; height:16px;overflow:hidden}
+.bar-export{background:url(images/ico.png) -53px 0;width:16px; height:16px;overflow:hidden}
+.import{background:url(images/ico.png) -19px -18px;width:16px; height:16px;overflow:hidden}
+.refresh{background:url(images/ico.png) -40px -18px;width:16px; height:16px;overflow:hidden}
+.prev{background:url(images/ico.png) -58px -20px;width:6px; height:9px;overflow:hidden}
+.next{background:url(images/ico.png) -69px -20px;width:6px; height:9px;overflow:hidden}

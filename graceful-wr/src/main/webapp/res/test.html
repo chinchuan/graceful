@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+</head>
+<link  href="global.css"  type="text/css" rel="stylesheet"/>
+<script src="jquery-min.js"></script>
+<script src="common.js"></script>
+<body>
+
+<div style="padding:10px">
+<button class="wr-button" value="测试" name="button1" type="button" > 测试</button>
+</div>
+ 
+
+<div  style="width:800px;height:300px;" class="wr-grid">
+      <div class="wr-grid-actionbar">
+      	  <ul>
+             <li title="新增" class="wr-grid-actionbar-item"> <span class="ico bar-new"></span>新增</li>
+             <li title="导入" class="wr-grid-actionbar-item"> <span class="ico import"></span>导入</li>
+             <li class="wr-grid-actionbar-spacer bar-spacer"></li>
+             <li title="删除" class="wr-grid-actionbar-item"> <span class="ico bar-delete"></span>删除</li>
+             <li title="导出" class="wr-grid-actionbar-item"> <span class="ico bar-export"></span>导出</li>
+          </ul>
+      </div>
+      <div class="wr-grid-header">
+          <table>
+            <colgroup>
+                <col width="100px"/>
+                <col width="200px"/>
+                <col width="300px"/>
+                <col/>
+            </colgroup>
+             <tr>
+                <td unselectable="on" onselectstart="return false;" class="wr-grid-header-col-sortable" fieldname="name">
+                  <div class="wr-grid-header-col">
+                      标题1
+                      <div class="wr-grid-header-sort asc"></div>
+                      <div class="wr-grid-header-resize split"></div>
+                  </div>
+                </td>
+                <td unselectable="on" onselectstart="return false;" class="wr-grid-header-col-sortable" fieldname="value">
+               	 <div class="wr-grid-header-col">
+                	标题2
+                     <div class="wr-grid-header-sort"></div>
+                    <div class="wr-grid-header-resize split"></div>
+                 </div>
+                </td>
+                <td unselectable="on" onselectstart="return false;" class="wr-grid-header-col-sortable" fieldname="index">
+                 <div class="wr-grid-header-col">
+               		标题3
+                     <div class="wr-grid-header-sort"></div>
+                    <div class="wr-grid-header-resize split"></div>
+                 </div>
+                </td>
+                <td> <div class="wr-grid-header-col"></div></td>
+             </tr>
+          </table>
+          <div class="wr-grid-header-refresh refresh" title="刷新" unselectable="on" onselectstart="return false;"></div>
+     </div>
+    
+    <div style="width:100%;position:absolute;overflow:hidden;bottom:23px;left:0;top:48px;*height:expression((this.parentNode.clientHeight-71)+'px');">
+      <div class="wr-grid-data">
+       <div style="zoom:1">
+        <table cellpadding="0" cellspacing="0">
+        <colgroup>
+            <col width="100px" class="wr-grid-data-sort"/>
+            <col width="200px"/>
+            <col width="300px"/>
+            <col/>
+         </colgroup>
+          <tbody>
+             </tbody>
+          </table>
+          </div>
+          </div>
+      </div>
+        <div  class="wr-grid-footer"> 
+        	<span class="statusbar">选定10中的1项。</span>
+            <span class="paging no-selected"  unselectable="on" onselectstart="return false;">
+            </span>
+        </div>
+ 
+</div>
+
+
+<script language="javascript">
+ 
+
+$('.wr-grid').wrGrid({
+		url:'http://127.0.0.1:8080/test/ajax.json'
+}).load();
+
+ 
+</script>
+</body>
+</html>
