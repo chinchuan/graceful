@@ -3,7 +3,6 @@ package org.graceful.correct.web.tags;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspTagException;
 import javax.servlet.jsp.tagext.TagSupport;
-import javax.servlet.jsp.tagext.TryCatchFinally;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -11,7 +10,7 @@ import org.apache.poi.hssf.record.formula.functions.T;
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.WebApplicationContext;
 
-public abstract class RequestContextAwareTag extends TagSupport implements TryCatchFinally {
+public abstract class RequestContextAwareTag extends TagSupport {
 
 	private static final long serialVersionUID = -8523651183380306803L;
 
@@ -42,7 +41,7 @@ public abstract class RequestContextAwareTag extends TagSupport implements TryCa
 	}
 	/**
 	 * 获取 spring 管理的 bean
-	 * @param cls
+	 * @param name
 	 * @return
 	 */
 	protected final Object getBean(String name) {
@@ -53,14 +52,4 @@ public abstract class RequestContextAwareTag extends TagSupport implements TryCa
 	}
 	
 	protected abstract int doStartTagInternal() throws Exception;
-	
-	@Override
-	public void doCatch(Throwable throwable) throws Throwable {
-		throw throwable;
-	}
-
-	@Override
-	public void doFinally() {
-		context = null;
-	}
 }
