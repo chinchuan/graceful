@@ -1,7 +1,7 @@
 package org.graceful.correct.core;
 
  
-public abstract class GracefulException extends RuntimeException {
+public  class GracefulException extends RuntimeException {
 	
 	private static final long serialVersionUID = 8361390426905415042L;
 

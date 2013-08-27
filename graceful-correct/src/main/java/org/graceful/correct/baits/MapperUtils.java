@@ -33,7 +33,7 @@ public class MapperUtils {
 	 * @param pageSize  页大小
 	 * @return
 	 */
-	public static <T extends Serializable> Page<T> query(StandardMapper<T> mapper,Filter filter,Integer currentPage,Integer pageSize){
+	public static <T extends Serializable> Page<T> query(StandardMapper mapper,Filter filter,Integer currentPage,Integer pageSize){
 		
 		Page<T> page = initPage(currentPage,pageSize);
 		int offset = Page.getOffset(page.getCurrentPage(), page.getPageSize()).intValue();

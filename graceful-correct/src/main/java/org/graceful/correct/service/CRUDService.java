@@ -6,35 +6,35 @@ import java.util.List;
 import org.graceful.correct.core.Filter;
 import org.graceful.correct.core.Page;
 
-public interface CRUDService<Entity extends Serializable ,Key extends Serializable>{
+public interface CRUDService{
 
 	/**
 	 * 新增数据
 	 * @param entity  数据实体
 	 * @return
 	 */
-	int insert(Entity entity);
+	<Entity extends Serializable> int insert(Entity entity);
 	
 	/**
 	 * 更新数据
 	 * @param entity 数据实体
 	 * @return
 	 */
-	int update(Entity entity);
+	<Entity extends Serializable> int update(Entity entity);
 	
 	/**
 	 * 删除数据 
 	 * @param key  主键
 	 * @return
 	 */
-	int delete(Key key);
+	<Key extends Serializable> int delete(Key key);
 	
 	/**
 	 * 按主键获取实体数据
 	 * @param key  主键
 	 * @return
 	 */
-	Entity get(Key key);
+	<Entity extends Serializable,Key extends Serializable> Entity get(Key key);
 	
 	/**
 	 * 分页查询数据
@@ -43,12 +43,12 @@ public interface CRUDService<Entity extends Serializable ,Key extends Serializab
 	 * @param size
 	 * @return
 	 */
-	Page<Entity> query(Filter filter,Integer page,Integer size);
+	<Entity extends Serializable> Page<Entity> query(Filter filter,Integer page,Integer size);
 	
 	/**
 	 * 查询所有数据
 	 * @param filter
 	 * @return
 	 */
-	List<Entity> query(Filter filter);
+	<Entity extends Serializable> List<Entity> query(Filter filter);
 }

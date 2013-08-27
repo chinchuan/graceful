@@ -42,7 +42,7 @@ public abstract class AbstractService {
 	 * @return
 	 */
 	@SuppressWarnings("unchecked")
-	protected <T extends Serializable> Page<T> query(StandardMapper<T> mapper,Filter filter,Integer currentPage,Integer pageSize){
+	protected <T extends Serializable> Page<T> query(StandardMapper mapper,Filter filter,Integer currentPage,Integer pageSize){
 		
 		Page<T> page = initPage(currentPage,pageSize);
 		int offset = Page.getOffset(page.getCurrentPage(), page.getPageSize()).intValue();

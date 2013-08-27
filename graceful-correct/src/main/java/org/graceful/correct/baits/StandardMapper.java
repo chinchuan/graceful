@@ -9,7 +9,7 @@ import org.graceful.correct.core.Order;
 import org.graceful.correct.core.Page;
 
 
-public interface StandardMapper<T extends Serializable> {
+public interface StandardMapper{
 
 	/**
 	 * 按关键字删除
@@ -23,21 +23,21 @@ public interface StandardMapper<T extends Serializable> {
 	 * @param record
 	 * @return
 	 */
-	int insert(T record);
+	<Entity extends Serializable> int insert(Entity record);
 	
 	/**
 	 * 更新
 	 * @param t  要更新的参数
 	 * @return
 	 */
-	 int updateByPrimaryKey(T t);
+	<Entity extends Serializable> int updateByPrimaryKey(Entity entity);
 	
 	/**
 	 * 带判断更新
 	 * @param t
 	 * @return
 	 */
-	int updateByPrimaryKeySelective(T t);
+	<Entity extends Serializable> int updateByPrimaryKeySelective(Entity entity);
 	
 	/**
 	 * 按关键字查询
@@ -93,6 +93,6 @@ public interface StandardMapper<T extends Serializable> {
 	 * @param filter
 	 * @return
 	 */
-	Long getQueryCount(Filter filter);
+	Long getQueryCount(@Param("filter") Filter filter);
 	
 }
