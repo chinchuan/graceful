@@ -1,8 +1,8 @@
 package org.graceful.correct.web.tags;
 
+import java.io.IOException;
+import java.io.Writer;
 import javax.servlet.jsp.JspException;
-
-import org.springframework.web.servlet.tags.form.TagWriter;
 
 public abstract class AbstractHtmlTag extends RequestContextAwareTag {
 
@@ -74,13 +74,60 @@ public abstract class AbstractHtmlTag extends RequestContextAwareTag {
 
 	private String onkeydown;
 
-	protected TagWriter createTagWriter() {
-		return new TagWriter(this.pageContext);
-	}
-
 	@Override
 	protected int doStartTagInternal() throws Exception {
-		return writeTagContent(createTagWriter());
+		return writeTagContent(pageContext.getOut());
+	}
+
+	/**
+	 * 写入属性
+	 * 
+	 * @param tagWriter
+	 * @param attributeName
+	 * @param attributeValue
+	 */
+	protected final void writeOptionalAttribute(Writer tagWriter,
+			String attributeName, String attributeValue) throws JspException {
+		if (attributeValue != null && !attributeValue.isEmpty()) {
+			try {
+				tagWriter.write(" ");
+				tagWriter.write(attributeName);
+				tagWriter.write("=\"");
+				tagWriter.write(attributeValue);
+				tagWriter.write("\"");
+			} catch (IOException e) {
+				throw new JspException("Unable to write to JspWriter",e);
+			}
+		}
+	}
+
+	/**
+	 * 写入所有属性
+	 * 
+	 * @param tagWriter
+	 * @throws JspException
+	 * @throws IOException
+	 */
+	protected void writeOptionalAttributes(Writer tagWriter)
+			throws JspException {
+
+		writeOptionalAttribute(tagWriter, CLASS_ATTRIBUTE, getCssClass());
+		writeOptionalAttribute(tagWriter, STYLE_ATTRIBUTE, getCssStyle());
+		writeOptionalAttribute(tagWriter, LANG_ATTRIBUTE, getLang());
+		writeOptionalAttribute(tagWriter, TITLE_ATTRIBUTE, getTitle());
+		writeOptionalAttribute(tagWriter, DIR_ATTRIBUTE, getDir());
+		writeOptionalAttribute(tagWriter, TABINDEX_ATTRIBUTE, getTabindex());
+		writeOptionalAttribute(tagWriter, ONCLICK_ATTRIBUTE, getOnclick());
+		writeOptionalAttribute(tagWriter, ONDBLCLICK_ATTRIBUTE, getOndblclick());
+		writeOptionalAttribute(tagWriter, ONMOUSEDOWN_ATTRIBUTE,getOnmousedown());
+		writeOptionalAttribute(tagWriter, ONMOUSEUP_ATTRIBUTE, getOnmouseup());
+		writeOptionalAttribute(tagWriter, ONMOUSEOVER_ATTRIBUTE,getOnmouseover());
+		writeOptionalAttribute(tagWriter, ONMOUSEMOVE_ATTRIBUTE,getOnmousemove());
+		writeOptionalAttribute(tagWriter, ONMOUSEOUT_ATTRIBUTE, getOnmouseout());
+		writeOptionalAttribute(tagWriter, ONKEYPRESS_ATTRIBUTE, getOnkeypress());
+		writeOptionalAttribute(tagWriter, ONKEYUP_ATTRIBUTE, getOnkeyup());
+		writeOptionalAttribute(tagWriter, ONKEYDOWN_ATTRIBUTE, getOnkeydown());
+
 	}
 
 	/**
@@ -89,7 +136,7 @@ public abstract class AbstractHtmlTag extends RequestContextAwareTag {
 	 * @return valid tag render instruction as per
 	 *         {@link javax.servlet.jsp.tagext.Tag#doStartTag()}.
 	 */
-	protected abstract int writeTagContent(TagWriter tagWriter)
+	protected abstract int writeTagContent(Writer tagWriter)
 			throws JspException;
 
 	public String getCssClass() {
